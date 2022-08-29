@@ -1,4 +1,4 @@
-package hellowjap;
+package jpabasic.ex1hellojpa.hellowjap;
 
 import lombok.Getter;
 import lombok.Setter;

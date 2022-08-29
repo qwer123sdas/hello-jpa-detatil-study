@@ -1,12 +1,11 @@
-package hellowjap;
+package jpabasic.ex1hellojpa.hellowjap;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
-public class JpaMain {
+public class JpaMainTest {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
         EntityManager em = emf.createEntityManager();
