@@ -17,6 +17,7 @@ public class Order {
 
     @Column(name = "MEMBER_ID")
     private Long memberId;
+    @Column(name = "order_date")
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
