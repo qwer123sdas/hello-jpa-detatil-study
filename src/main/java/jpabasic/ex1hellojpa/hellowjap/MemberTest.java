@@ -11,24 +11,19 @@ import java.util.Date;
 @Getter @Setter
 public class MemberTest {
 
-    @Id
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    private Integer age;
+    @Column(name = "USERNAME")
+    private String userName;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
+    /*@Column(name = "TEAM_ID")
+    private Long teamId;*/
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
+    @ManyToOne   // jpa에게 어떤 관계인지 알려주는 것.
+    @JoinColumn(name = "TEAM_ID") // 어떤 컬럼과 조인할 것인지 명명
+    private TeamTest team;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    @Lob
-    private String description;
-
-    public MemberTest(){}
-    //Getter, Setter…
 
 }
