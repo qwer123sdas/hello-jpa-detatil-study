@@ -16,22 +16,22 @@ public class JpaMain {
         
         // 정석 코드
         try {
-            Member member = new Member();
+            //Member member = new Member();
             // insert
             /*member.setId(2L);
             member.setName("HelloB");
             em.persist(member);*/
 
             // select
-            Member findMember = em.find(Member.class, 1L);
+            //Member findMember = em.find(Member.class, 1L);
             /*System.out.println(findMember.getId());
             System.out.println(findMember.getName());*/
 
             // 전체 회원 조회
-            List<Member> result = em.createQuery("select m from Member m", Member.class)
+/*            List<Member> result = em.createQuery("select m from Member m", Member.class)
                     .setFirstResult(1)
                     .setMaxResults(10)
-                    .getResultList();
+                    .getResultList();*/
 
             // delete
             // em.delete(findMember);
