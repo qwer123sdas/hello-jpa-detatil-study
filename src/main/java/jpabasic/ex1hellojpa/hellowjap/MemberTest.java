@@ -25,5 +25,17 @@ public class MemberTest {
     @JoinColumn(name = "TEAM_ID") // 어떤 컬럼과 조인할 것인지 명명
     private TeamTest team;
 
+    public void changeTeam(TeamTest team){
+        this.team = team;
+        team.getMembers().add(this); // this는 Member객체 나자신
+    }
 
+    @Override
+    public String toString() {
+        return "MemberTest{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", team=" + team +
+                '}';
+    }
 }

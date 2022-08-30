@@ -1,9 +1,13 @@
 package jpabasic.ex1hellojpa;
 
+import jpabasic.ex1hellojpa.hellowjap.MemberTest;
+import jpabasic.ex1hellojpa.hellowjap.TeamTest;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -15,6 +19,26 @@ public class JpaMain {
 
         // 정석 코드
         try {
+            // 저장
+            TeamTest team = new TeamTest();
+            team.setName("TeamA");
+            em.persist(team);
+
+            MemberTest member = new MemberTest();
+            member.setUserName("member1");
+            member.setTeam(team);
+            em.persist(member);
+
+            em.flush();
+            em.clear();
+
+            MemberTest findMember = em.find(MemberTest.class, member.getId());
+            List<MemberTest> members = findMember.getTeam().getMembers();
+            // 이를 통해 반대 방향으로도 탐색할 수 있게 됨.
+            for(MemberTest m : members){
+                System.out.println("m = " + m.getUserName());
+            }
+
             tx.commit();
         }catch (Exception e){
             tx.rollback();
