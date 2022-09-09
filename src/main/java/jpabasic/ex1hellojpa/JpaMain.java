@@ -1,5 +1,7 @@
 package jpabasic.ex1hellojpa;
 
+import jpabasic.ex1hellojpa.domain.Order;
+import jpabasic.ex1hellojpa.domain.OrderItem;
 import jpabasic.ex1hellojpa.hellowjap.MemberTest;
 import jpabasic.ex1hellojpa.hellowjap.TeamTest;
 
@@ -20,6 +22,7 @@ public class JpaMain {
         // 정석 코드
         try {
             // 저장
+            /*
             TeamTest team = new TeamTest();
             team.setName("TeamA");
             em.persist(team);
@@ -38,6 +41,17 @@ public class JpaMain {
             for(MemberTest m : members){
                 System.out.println("m = " + m.getUserName());
             }
+            */
+
+            Order order = new Order();
+            em.persist(order);
+
+            //order.addOrderItem(new OrderItem());
+            // 또는
+            OrderItem orderItem = new OrderItem();
+            orderItem.setOrder(order);
+
+            em.persist(orderItem);
 
             tx.commit();
         }catch (Exception e){

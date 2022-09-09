@@ -35,7 +35,6 @@ public class MemberTest {
         return "MemberTest{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
-                ", team=" + team +
                 '}';
     }
 }

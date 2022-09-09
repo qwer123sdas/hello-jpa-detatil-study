@@ -29,7 +29,6 @@ public class TeamTest {
         return "TeamTest{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", members=" + members +
                 '}';
     }
 }
